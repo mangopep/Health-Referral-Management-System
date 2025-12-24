@@ -23,7 +23,7 @@
 ## 📋 Table of Contents
 
 - [About The Project](#-about-the-project)
-- [Technical Implementation](#-technical-implementation)
+- [Technology Stack and Technical Implementation](#-technical-implementation)
 - [Getting Started](#-getting-started)
 - [API Reference](#-api-reference)
 - [Architecture](#-architecture)
@@ -62,6 +62,24 @@ Given an event feed where:
 ---
 
 ## 🧠 Technical Implementation
+
+
+### Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React 19, Vite 7, TypeScript 5, TailwindCSS 4 |
+| **UI Components** | Radix UI, Lucide React, Framer Motion |
+| **State & Data** | TanStack Query, React Hook Form, Zod |
+| **Routing** | Wouter |
+| **Charts** | Recharts |
+| **Backend** | Node.js 20, Express, Firebase Cloud Functions |
+| **Database** | Cloud Firestore |
+| **Auth** | Firebase Authentication |
+| **Testing** | Vitest, React Testing Library, Supertest |
+| **API Docs** | Swagger UI (OpenAPI 3.0) |
+| **Hosting** | Firebase Hosting |
+
 
 ### Core Algorithm
 
