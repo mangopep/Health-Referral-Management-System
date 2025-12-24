@@ -1,0 +1,29 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+.local/
+attached_files/
+*.log
+# --- Security & env ---
+.env
+*.env
+!.env.example
+serviceAccountKey.json
+**/serviceAccountKey.json
+
+# --- Root lockfile (root has no deps) ---
+/package-lock.json
+
+# --- IDE ---
+.idea/
+.vscode/
+
+# --- Firebase ---
+functions/lib/
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+ui-debug.log

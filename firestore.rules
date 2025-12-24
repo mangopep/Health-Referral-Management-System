@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to get user role from the users collection
+    function getUserRole() {
+      return get(/databases/$(database)/documents/organizations/default/users/$(request.auth.uid)).data.role;
+    }
+    
+    // Organizations collection
+    match /organizations/{orgId} {
+      allow read: if isAuthenticated();
+      
+      // Users subcollection
+      match /users/{userId} {
+        allow read: if isAuthenticated();
+        allow write: if isAuthenticated() && getUserRole() == 'admin';
+      }
+      
+      // Referrals subcollection
+      match /referrals/{referralId} {
+        allow read: if isAuthenticated();
+        allow write: if isAuthenticated() && getUserRole() == 'admin';
+        
+        // Events subcollection
+        match /events/{eventId} {
+          allow read: if isAuthenticated();
+          allow write: if isAuthenticated() && getUserRole() == 'admin';
+        }
+      }
+      
+      // Uploads subcollection
+      match /uploads/{uploadId} {
+        allow read: if isAuthenticated();
+        allow write: if isAuthenticated() && getUserRole() == 'admin';
+      }
+      
+      // Metrics subcollection
+      match /metrics/{metricId} {
+        allow read: if isAuthenticated();
+        allow write: if isAuthenticated() && getUserRole() == 'admin';
+      }
+    }
+  }
+}

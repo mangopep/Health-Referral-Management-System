@@ -1,0 +1,20 @@
+/**
+ * @file client/src/shared/ui/primitives/skeleton.tsx
+ * @description Reusable UI primitive component
+ */
+
+import { cn } from "@/core/utils/cn"
+
+function Skeleton({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn("animate-pulse rounded-md bg-primary/10", className)}
+      {...props}
+    />
+  )
+}
+
+export { Skeleton }
